@@ -1,0 +1,2 @@
+$DOTFILES/zsh/config/.zshenv=$HOME/.zshenv
+$DOTFILES/zsh/config/zsh/=$HOME/.config/zsh
