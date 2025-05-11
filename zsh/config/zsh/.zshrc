@@ -2,15 +2,15 @@
 source $ZDOTDIR/aliases/aliases.sh
 
 # Homebrew init
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # Load completions
 autoload -Uz compinit && compinit
 
 # Add in zsh plugins
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $XDG_DATA_HOME/fzf-tab/fzf-tab.plugin.zsh
+# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $XDG_DATA_HOME/fzf-tab/fzf-tab.plugin.zsh
 
 # Keybindings
 bindkey -e
@@ -43,4 +43,4 @@ eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"    # Oh-my-po
 moo
 
 # Mise init
-eval "$(mise activate zsh)"
+# eval "$(mise activate zsh)"
