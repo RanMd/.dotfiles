@@ -16,7 +16,6 @@ echo ${RESET}
 
 DOTFILES=$(dirname $(pwd))
 
-echo $DOTFILES
 _prueba
 
 echo ${GREEN}

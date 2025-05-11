@@ -145,39 +145,58 @@ _linkFile () {
 
 
 _installDotfiles() {
-  local overwrite_all=false backup_all=false skip_all=false
+    local overwrite_all=false backup_all=false skip_all=false
 
-  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile
-  do
-    cat "$linkfile" | while read line
+    find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile
     do
-        local src dst dir
-        src=$(eval echo "$line" | cut -d '=' -f 1)
-        dst=$(eval echo "$line" | cut -d '=' -f 2)
-        dir=$(dirname $dst)
+      cat "$linkfile" | while read line
+      do
+          local src dst dir
+          src=$(eval echo "$line" | cut -d '=' -f 1)
+          dst=$(eval echo "$line" | cut -d '=' -f 2)
+          dir=$(dirname $dst)
 
-        mkdir -p "$dir"
-        link_file "$src" "$dst"
+          mkdir -p "$dir"
+
+        
+
+          link_file "$src" "$dst"
+      done
     done
-  done
 }
 
 
 _prueba() {
-  local overwrite_all=false backup_all=false skip_all=false
+    local overwrite_all=false backup_all=false skip_all=false
 
-  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile
-  do
-    cat "$linkfile" | while read line
-    do
-        local src dst dir
-        src=$(eval echo "$line" | cut -d '=' -f 1)
-        dst=$(eval echo "$line" | cut -d '=' -f 2)
-        dir=$(dirname $dst)
+    find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | \
+    while read linkfile; do
+        cat "$linkfile" | while read line; do
+            local src=$(eval echo "$line" | cut -d '=' -f 1)
+            local dst=$(eval echo "$line" | cut -d '=' -f 2)
+            local dir=$(dirname $dst)
 
-	echo "SOURCE: $src"
-	echo "DESTINO: $dst"
-	echo "DIR: $dir"
+	    echo "Ruta creada: $dir"
+            
+	    local backup=0
+
+	    if [[ -d "$dst" || -f "$dst" || -L "$dst" ]]; then
+	       _printOptions
+               read -n 1 action  < /dev/tty
+
+	       case "$action" in
+	           b)
+	           backup=1;;
+	       esac
+	    fi
+
+	    echo "Source: $src -> Destino: $dst" 
+	    echo ""
+        done
     done
-  done
+}
+
+_printOptions() {
+    echo "${BLUE}${BOLD}::${RESET}${BOLD} Config already exists: ($dst) What do you want to do?"
+    echo "   [${BOLD}${YELLOW}o${RESET}${BOLD}]verwrite  [${YELLOW}O${RESET}${BOLD}]verwrite all  [${YELLOW}b${RESET}${BOLD}]ackup  [${YELLOW}B${RESET}${BOLD}]ackup all${RESET}"
 }

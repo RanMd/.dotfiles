@@ -21,12 +21,11 @@ DEPENDENCIES=(
     "fzf"
     "cowsay"
     "zsh"
+    "libnotify"
     # Neovim dependencies
     "neovim"
     "ripgrep"
     "fd"
-    "libnotify"
-    "ponysay"
 )
 
 _installPackages ${DEPENDENCIES[@]}
