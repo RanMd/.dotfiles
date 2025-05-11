@@ -3,6 +3,8 @@
 source includes/colors.sh
 source includes/library.sh
 
+DOTFILES=$(dirname $(pwd))
+
 # Starting admin permissions
 sudo echo
 
@@ -22,7 +24,7 @@ DEPENDENCIES=(
   "cowsay"
   "zsh"
   "zoxide"
-  "ohmyposh"
+  "oh-my-posh"
   "libnotify"
   # Neovim dependencies
   "neovim"

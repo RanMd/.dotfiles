@@ -3,6 +3,8 @@
 source includes/colors.sh
 source includes/library.sh
 
+DOTFILES=$(dirname $(pwd))
+
 echo ${GREEN}
 cat <<'EOF'
   ___         _        _ _ _                  _     _    __ _ _        
@@ -13,8 +15,6 @@ cat <<'EOF'
 EOF
 
 echo ${RESET}
-
-DOTFILES=$(dirname $(pwd))
 
 _prueba
 
