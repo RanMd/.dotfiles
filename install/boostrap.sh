@@ -16,7 +16,7 @@ EOF
 
 echo ${RESET}
 
-_prueba
+_installSymLinks
 
 echo ${GREEN}
 cat <<'EOF'

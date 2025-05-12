@@ -51,158 +51,75 @@ _installPackage() {
 _installSymLink() {
   local src=$1
   local dst=$2
-  local backup=$3 # 1 = true, 0 = false
+  local backup=$3 # 0 = true, 1 = false
 
   local currentSrc="$(readlink ${dst})"
 
   if [[ "$currentSrc" == "$src" ]]; then
-    echo "${YELLOW}${BOLD}::${RESET}${BOLD} SymLink is already created.${RESET}"
+    echo "${YELLOW}${BOLD}::${RESET} SymLink $src -> $dst already exists."
     return
   fi
 
-  if [[ $backup -eq 1 ]]; then
+  if [[ $backup -eq 0 ]]; then
     mv "${dst}" "${dst}.bak"
-    echo "${GREEN}${BOLD}::${RESET}${BOLD} Backup for ${dst} created.${RESET}"
-  fi
-
-  if [[ -f "$dst" || -L "$dst" ]]; then
-    rm "${dst}"
-  elif [[ -d "$dst" ]]; then
-    rm -r "${dst}"
+    echo "${GREEN}${BOLD}::${RESET} Backup for ${dst} created."
+  else
+    if [[ -f "$dst" || -L "$dst" ]]; then
+      rm "${dst}"
+      echo "${RED}${BOLD}::${RESET} ${dst} file will be removed."
+    elif [[ -d "$dst" ]]; then
+      rm -r "${dst}"
+      echo "${RED}${BOLD}::${RESET} ${dst} folder will be removed."
+    fi
   fi
 
   ln -s "${src}" "${dst}"
-  echo "${BLUE}${BOLD}::${RESET}${BOLD} SymLink $src -> $dst created.${RESET}"
+  echo "${BLUE}${BOLD}::${RESET} SymLink $src -> $dst created."
 }
 
-_linkFile() {
-  local src=$1
-  local dst=$2
-
-  local overwrite=
-  local backup=
-  local skip=
-  local action=
-
-  if [ -f "$dst" ] || [ -d "$dst" ] || [ -L "$dst" ]; then
-
-    if [ "$overwrite_all" == "false" ] && [ "$backup_all" == "false" ] && [ "$skip_all" == "false" ]; then
-
-      # ignoring exit 1 from readlink in case where file already exists
-      # shellcheck disable=SC2155
-      local currentSrc="$(readlink $dst)"
-
-      if [ "$currentSrc" == "$src" ]; then
-
-        skip=true
-
-      else
-
-        user "File already exists: $dst ($(basename "$src")), what do you want to do?\n\
-        [s]kip, [S]kip all, [o]verwrite, [O]verwrite all, [b]ackup, [B]ackup all?"
-        read -n 1 action </dev/tty
-
-        case "$action" in
-        o)
-          overwrite=true
-          ;;
-        O)
-          overwrite_all=true
-          ;;
-        b)
-          backup=true
-          ;;
-        B)
-          backup_all=true
-          ;;
-        s)
-          skip=true
-          ;;
-        S)
-          skip_all=true
-          ;;
-        *) ;;
-        esac
-
-      fi
-
-    fi
-
-    overwrite=${overwrite:-$overwrite_all}
-    backup=${backup:-$backup_all}
-    skip=${skip:-$skip_all}
-
-    if [ "$overwrite" == "true" ]; then
-      rm -rf "$dst"
-      success "removed $dst"
-    fi
-
-    if [ "$backup" == "true" ]; then
-      mv "$dst" "${dst}.backup"
-      success "moved $dst to ${dst}.backup"
-    fi
-
-    if [ "$skip" == "true" ]; then
-      success "skipped $src"
-    fi
-  fi
-
-  if [ "$skip" != "true" ]; then # "false" or empty
-    ln -s "$1" "$2"
-    success "linked $1 to $2"
-  fi
-}
-
-_installDotfiles() {
-  local overwrite_all=false backup_all=false skip_all=false
-
-  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile; do
-    cat "$linkfile" | while read line; do
-      local src dst dir
-      src=$(eval echo "$line" | cut -d '=' -f 1)
-      dst=$(eval echo "$line" | cut -d '=' -f 2)
-      dir=$(dirname $dst)
-
-      mkdir -p "$dir"
-
-      link_file "$src" "$dst"
-    done
-  done
-}
-
-_prueba() {
-  local overwrite_all=false backup_all=false skip_all=false
+_installSymLinks() {
+  local overwrite_all=1 backup_all=1 skip_all=false
 
   find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' |
     while read linkfile; do
-      cat "$linkfile" | while read line; do
+      while read line; do
         local src=$(eval echo "$line" | cut -d '=' -f 1)
         local dst=$(eval echo "$line" | cut -d '=' -f 2)
         local dir=$(dirname $dst)
 
-        echo "Ruta creada: $dir"
+        mkdir -p "$dir"
 
-        local backup=0
+        local backup=1
 
         if [[ -d "$dst" || -f "$dst" || -L "$dst" ]]; then
+          if [[ $backup_all -eq 0 || "$overwrite_all" -eq 0 ]]; then
+            _installSymLink "$src" "$dst" "$backup_all"
+            continue
+          fi
+
           _printOptions
           read -n 1 action </dev/tty
+          printf "\n\n"
 
           case "$action" in
+          O)
+            overwrite_all=0
+            ;;
           b)
-            backup=1
+            backup=0
+            ;;
+          B)
+            backup_all=0
             ;;
           esac
         fi
 
-        echo "Source: $src -> Destino: $dst"
-        _installSymLink "$src" "$dst"
-        echo ""
-      done
+        _installSymLink "$src" "$dst" "$backup"
+      done <"$linkfile"
     done
 }
 
 _printOptions() {
-  echo "${BLUE}${BOLD}::${RESET}${BOLD} Config already exists: ($dst) What do you want to do?"
-  echo "   [${BOLD}${YELLOW}o${RESET}${BOLD}]verwrite  [${YELLOW}O${RESET}${BOLD}]verwrite all  [${YELLOW}b${RESET}${BOLD}]ackup  [${YELLOW}B${RESET}${BOLD}]ackup all${RESET}"
+  printf "${BLUE}${BOLD}::${RESET}${BOLD} Config already exists: ($dst) What do you want to do? \n"
+  printf "   [${BOLD}${YELLOW}o${RESET}${BOLD}]verwrite  [${YELLOW}O${RESET}${BOLD}]verwrite all  [${YELLOW}b${RESET}${BOLD}]ackup  [${YELLOW}B${RESET}${BOLD}]ackup all${RESET} : "
 }
