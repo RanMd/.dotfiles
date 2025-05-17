@@ -1,25 +1,15 @@
 require("full-border"):setup()
-require("hide-preview"):entry()
+--
+th.git = th.git or {}
+th.git.modified_sign = "M"
+th.git.deleted_sign = "D"
+th.git.added_sign = "A"
+th.git.untracked_sign = "U"
+th.git.ignored_sign = "I"
 
-THEME.git                = THEME.git or {}
-THEME.git.modified_sign  = "M"
-THEME.git.deleted_sign   = "D"
-THEME.git.added_sign     = "A"
-THEME.git.untracked_sign = "U"
-THEME.git.ignored_sign   = "I"
-
-THEME.git.modified       = ui.Style():fg("#aa9472")
-THEME.git.deleted        = ui.Style():fg("red"):bold()
-THEME.git.untracked      = ui.Style():fg("red"):bold()
-THEME.git.added          = ui.Style():fg("green"):bold()
+th.git.modified = ui.Style():fg("#aa9472")
+th.git.deleted = ui.Style():fg("red"):bold()
+th.git.untracked = ui.Style():fg("red"):bold()
+th.git.added = ui.Style():fg("green"):bold()
 
 require("git"):setup()
-
-local home = os.getenv("HOME")
-require("bunny"):setup({
-  hops = {
-    { tag = "home",      path = home,                 key = "h" },
-    { tag = "config",    path = home .. "/.config",   key = "C" },
-    { tag = "downloads", path = home .. "/downloads", key = "d" },
-  },
-})

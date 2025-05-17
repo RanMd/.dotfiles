@@ -3,12 +3,3 @@ on   = "T"
 run  = "plugin hide-preview"
 desc = "Hide or show preview"
 
-[[manager.prepend_keymap]]
-on = "Y"
-run = "plugin bunny"
-desc = "Start bunny.yazi"
-
-[[manager.prepend_keymap]]
-on   = [ "c", "o" ]
-run  = "shell '$SHELL' --block"
-desc = "Open shell here"
