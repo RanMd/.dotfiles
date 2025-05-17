@@ -22,14 +22,24 @@ echo "${RESET}"
 DEPENDENCIES=(
   "fzf"
   "cowsay"
-  "zsh"
   "zoxide"
   "oh-my-posh"
   "libnotify"
+  "mise"
   # Neovim dependencies
   "neovim"
   "ripgrep"
   "fd"
+  # ZSH dependencies
+  "zsh"
+  "zsh-autosuggestions"
+  "zsh-syntax-highlighting"
+  # YAZI dependencies
+  "yazi"
+  "jq"
+  "poppler"
+  "imagemagick"
+  "wl-clipboard"
 )
 
 _installPackages ${DEPENDENCIES[@]}

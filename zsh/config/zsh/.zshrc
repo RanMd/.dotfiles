@@ -7,13 +7,14 @@ source $ZDOTDIR/aliases/aliases.sh
 # Load completions
 autoload -Uz compinit && compinit
 
+ZPLUGINS=/usr/share/zsh/plugins
+
 # Add in zsh plugins
-# source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# source $XDG_DATA_HOME/fzf-tab/fzf-tab.plugin.zsh
+source $ZPLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZPLUGINS/fzf-tab-git/fzf-tab.plugin.zsh
 
 # Keybindings
-bindkey -e
 bindkey '^ ' autosuggest-execute
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
@@ -37,10 +38,10 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init zsh)"
-eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/zen.toml)"    # Oh-my-posh init
+eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"    # Oh-my-posh init
 
 # Cowsay init
 moo
 
 # Mise init
-# eval "$(mise activate zsh)"
+eval "$(mise activate zsh)"

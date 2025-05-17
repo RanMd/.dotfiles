@@ -35,7 +35,7 @@ _installPackage() {
   else
     echo "${BLUE}${BOLD}::${RESET}${BOLD} Installing $package...${RESET}"
 
-    sudo pacman -S "$package"
+    sudo paru -S "$package"
 
     if [[ $(_isInstalled "${package}") == 0 ]]; then
       echo "${pkg} installed successfully."

@@ -1,5 +1,5 @@
 # Add local bin to PATH
-export PATH="$HOME/.local/bin:$PATH"
+# export PATH="$HOME/.local/bin:$PATH"
 
 # Most software will use the path in $XDG_CONFIG_HOME to install their own config files
 export XDG_CONFIG_HOME="$HOME/.config"
