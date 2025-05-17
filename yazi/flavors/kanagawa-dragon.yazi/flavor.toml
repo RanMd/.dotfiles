@@ -1,0 +1,137 @@
+# Colors manager
+# border = #8ba4b0
+# text = #363646
+#
+#
+# --------------------
+# Manager
+[manager]
+cwd = { fg = "#DCD7BA" } # yellow
+
+#Hovered
+hovered = { reversed = true }
+preview_hovered = { reversed = true }
+
+# Marker
+marker_copied   = { fg = "#87a987", bg = "#87a987" } # green
+marker_cut      = { fg = "#e46876", bg = "#e46876" } # red
+marker_marked   = { fg = "#a292a3", bg = "#a292a3" } # magenta
+marker_selected = { fg = "#b6927b", bg = "#b6927b" } # cyan
+
+# Tab
+tab_active   = { fg = "#1f1f28", bg = "#8ba4b0" }
+tab_inactive = {}
+tab_width    = 1
+
+# Count
+count_copied   = { fg = "#1f1f28", bg = "#87a987" } # green
+count_cut      = { fg = "#1f1f28", bg = "#e46876" } # red
+count_selected = { fg = "#1f1f28", bg = "#e63384" } # yellow
+
+# Border
+border_symbol = "│"
+border_style = { fg = "#48606b"} # white
+
+# Mode
+[mode]
+
+normal_main = { fg = "#1f1f28", bg = "#8ba4b0", bold = true }  # darkened black on blue
+normal_alt  = { fg = "#8ba4b0", bg = "#363646" }  # blue on darkened black
+
+# select mode
+select_main = { fg = "#414868", bg = "#9ece6a", bold = true }  # darkened black on green
+select_alt  = { fg = "#7aa2f7", bg = "#414868" }  # blue on darkened black
+
+# unset mode
+unset_main = { fg = "#414868", bg = "#bb9af7", bold = true }  # darkened black on magenta
+unset_alt  = { fg = "#7aa2f7", bg = "#414868" }  # blue on darkened black
+
+# Status Bar
+[status]
+separator_open = ""
+separator_close = ""
+separator_style = { fg = "reset", bg = "#363646" } # light bg
+
+# Progress
+progress_label  = { fg = "#8ba4b0", bg = "#363646", bold = true }
+progress_normal = { fg = "#363646", bg = "#1f1f28" }
+progress_error  = { fg = "#363646", bg = "#1f1f28" }
+
+# Permissions
+perm_sep   = { fg = "#938aa9" } # magenta
+perm_type  = { fg = "#87a987" } # green
+perm_read  = { fg = "#908caa" } # yellow
+perm_write = { fg = "#403d52" } # red
+perm_exec  = { fg = "#7aa89f" } # cyan
+
+[select]
+border   = { fg = "#8ba4b0" } # blue
+active   = { fg = "#938aa9", bold = true } # magenta
+inactive = {}
+
+[pick]
+border = { fg = "#8ba4b0" }  # Blue
+active = { fg = "#8ba4b0", bold = true }  # Magenta
+inactive = {}
+
+[input]
+border   = { fg = "#8ba4b0" } # blue
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[completion]
+border   = { fg = "#7fb4ca" } # blue
+active   = { reversed = true }
+inactive = {}
+
+[tasks]
+border  = { fg = "#7fb4ca" } # blue
+title   = {}
+hovered = { fg = "#938aa9" } # magenta
+
+[which]
+cols = 2
+separator = " - "
+separator_style = { fg = "#727169" } # darkgrey
+mask = { bg = "#16161d" } # dark bg
+rest = { fg = "#727169" } # darkgrey
+cand = { fg = "#8ba4b0" }
+desc = { fg = "#565666" }
+
+[help]
+on      = { fg = "#7aa89f" } # cyan
+run     = { fg = "#938aa9" } # magenta
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#090618", bg = "#c5c9c5" } # white
+
+[confirm]
+border     = { fg = "#8ba4b0" }
+title      = { fg = "#8ba4b0" }
+content    = {}
+list       = {}
+btn_yes    = { bg = "#8ba4b0", fg = "#363646" }
+btn_no     = {}
+btn_labels = [ "  [Y]es  ", "  [N]o  " ]
+
+[spot]
+border = { fg = "#8ba4b0" }
+title  = { fg = "#8ba4b0" }
+
+[notify]
+title_info  = { fg = "#87a987" } # green
+title_warn  = { fg = "#e6c384" } # yellow
+title_error = { fg = "#E46876" } # red
+
+# files
+[filetype]
+rules = [
+    { mime = "image/*", fg = "#e6c384" },
+    { mime = "{audio,video}/*", fg = "#a292a3" },
+    { mime = "application/{,g}zip", fg = "#e46876" },
+    { mime = "application/x-{tar,bzip*,7z-compressed,xz,rar}", fg = "#e46876" },
+    { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#6a9589" },
+    { name = "*", is = "orphan", fg = "#e46876" },
+    { name = "*", is = "exec", fg = "#a292a3" },
+    { name = "*/", fg = "#8ba4b0"}
+]
