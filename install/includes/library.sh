@@ -80,7 +80,7 @@ _installSymLink() {
 _installSymLinks() {
   local overwrite_all=1 backup_all=1 skip_all=false
 
-  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' |
+  find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*/.git/*' |
     while read linkfile; do
       while read line; do
         local src=$(eval echo "$line" | cut -d '=' -f 1)
@@ -116,6 +116,24 @@ _installSymLinks() {
 
         _installSymLink "$src" "$dst" "$backup"
       done <"$linkfile"
+    done
+}
+
+_installCustomDotfile() {
+  package="$1"
+  dir_package=$(basename $(dirname $package))
+
+  if [[ -f "$package" ]]; then
+    echo "${BLUE}${BOLD}::${RESET}${BOLD} Installing $dir_package custom dotfile script.${RESET}"
+
+    source "$package"
+  fi
+}
+
+_installCustomDotfiles() {
+  find -H "$DOTFILES" -maxdepth 2 -name 'dot_custom.sh' -not -path '*/.git/*' |
+    while read -r file; do
+      _installCustomDotfile "$file"
     done
 }
 

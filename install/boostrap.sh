@@ -17,6 +17,7 @@ EOF
 echo ${RESET}
 
 _installSymLinks
+_installCustomDotfiles
 
 echo ${GREEN}
 cat <<'EOF'

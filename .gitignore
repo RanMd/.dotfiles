@@ -1,6 +1,11 @@
 **/tmux/plugins
 **/zellij/plugins
+
 **/zsh/config/zsh/*
 **/zsh/config/zsh/.*
 !**/zsh/config/zsh/.zshrc
 !**/zsh/config/zsh/aliases
+
+**/yazi/config/plugins
+**/yazi/config/package.toml
+**/yazi/config/flavors
