@@ -40,6 +40,8 @@ DEPENDENCIES=(
   "poppler"
   "imagemagick"
   "wl-clipboard"
+  # PODMAN
+  "podman"
 )
 
 _installPackages ${DEPENDENCIES[@]}
