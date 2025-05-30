@@ -20,9 +20,19 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --excl
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude .cache"
 
-export FZF_DEFAULT_OPTS="--height 50% \
-  --layout=default \
+export FZF_DEFAULT_OPTS="\
+  --pointer='' \
+  --separator='' \
+  --height 50% \
+  --color=spinner:#F5E0DC,hl:#bea262 \
+  --color=fg:#bbb6bc,header:#bea262,info:#7a8e99,pointer:#F5E0DC \
+  --color=marker:#B4BEFE,fg+:#c6c1c7,prompt:#7a8e99,hl+:#bea262 \
+  --color=border:#313244,label:#CDD6F4,query:#bbb6bc \
   --border"
+
+
+export YAZI_ZOXIDE_OPTS=""
+
 
 # Editor variables
 export EDITOR="nvim"

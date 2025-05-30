@@ -1,5 +1,25 @@
 [[manager.prepend_keymap]]
 on   = "T"
-run  = "plugin hide-preview"
-desc = "Hide or show preview"
+run  = "plugin toggle-pane min-preview"
+desc = "Show or hide the preview pane"
+
+[[manager.prepend_keymap]]
+on   = "r"
+run  = "rename --cursor=start"
+desc = "Rename selected file(s)"
+
+[[pick.append_keymap]]
+on   = "O"
+run  = "close"
+desc = "Cancel pick"
+
+[[manager.prepend_keymap]]
+on   = "z"
+run  = "plugin zoxide"
+desc = "Jump to a directory via zoxide"
+
+[[manager.prepend_keymap]]
+on   = "Z"
+run  = "plugin fzf"
+desc = "Jump to a file/directory via fzf"
 

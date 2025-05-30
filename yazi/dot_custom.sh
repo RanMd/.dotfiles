@@ -4,7 +4,10 @@
 ya pack -a marcosvnmelo/kanagawa-dragon
 
 # Full border plugin
-ya pack -a yazi-rs/plugins:full-border
+ya pack -a RanMd/plugins:full-border
 
 # Git plugin
 ya pack -a yazi-rs/plugins:git
+
+# Toggle panes plugin
+ya pack -a yazi-rs/plugins:toggle-pane
