@@ -1,11 +1,18 @@
 **/tmux/plugins
 **/zellij/plugins
 
+# zsh ignores
+
 **/zsh/config/zsh/*
 **/zsh/config/zsh/.*
 !**/zsh/config/zsh/.zshrc
 !**/zsh/config/zsh/aliases
 
+# yazi ignores
+
 **/yazi/config/plugins
 **/yazi/config/package.toml
 **/yazi/config/flavors
+
+# podman ignores
+ **/podman/config/containers/podman
