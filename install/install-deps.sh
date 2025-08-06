@@ -20,28 +20,42 @@ EOF
 echo "${RESET}"
 
 DEPENDENCIES=(
-  "fzf"
-  "cowsay"
-  "zoxide"
-  "oh-my-posh"
-  "libnotify"
-  "mise"
-  # Neovim dependencies
-  "neovim"
-  "ripgrep"
-  "fd"
-  # ZSH dependencies
-  "zsh"
-  "zsh-autosuggestions"
-  "zsh-syntax-highlighting"
-  # YAZI dependencies
-  "yazi"
-  "jq"
-  "poppler"
-  "imagemagick"
-  "wl-clipboard"
-  # PODMAN
-  "podman"
+    "fzf"
+    "cowsay"
+    "zoxide"
+    "oh-my-posh"
+    "libnotify"
+    "bleachbit"
+    "mise"
+    "cava"
+    "trash-cli"
+    "zip"
+    "dragon-drop"
+    "mangohud"
+    "mangojuice"
+    "intel-undervolt"
+    # Neovim dependencies
+    "neovim"
+    "ripgrep"
+    "fd"
+    # ZSH dependencies
+    "zsh"
+    "zsh-autosuggestions"
+    "zsh-syntax-highlighting"
+    # YAZI dependencies
+    "yazi"
+    "7zip"
+    "jq"
+    "poppler"
+    "imagemagick"
+    "wl-clipboard"
+    "ueberzugpp" # image preview
+    # PODMAN
+    "podman"
+    "podman-compose"
+    # VSC
+    "code"
+    "ttf-firacode-nerd"
 )
 
 _installPackages ${DEPENDENCIES[@]}

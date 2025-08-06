@@ -5,20 +5,27 @@ require("full-border"):setup({
 	borders = false,
 })
 
+-- local toggle = require("toggle-pane")
+-- toggle:entry("min-parent")
+require("toggle-pane"):entry("min-parent")
+
 -- Hide the preview pane if the width of the window is small
-local function get_terminal_size()
-	local h = io.popen("tput lines && tput cols", "r")
-	local rows = tonumber(h:read("*l"))
-	local cols = tonumber(h:read("*l"))
-	h:close()
+-- local function get_terminal_size()
+-- 	local h = io.popen("tput lines && tput cols", "r")
+-- 	local rows = tonumber(h:read("*l"))
+-- 	local cols = tonumber(h:read("*l"))
+-- 	h:close()
+--
+-- 	if cols <= 110 then
+-- 		toggle:entry("min-preview")
+-- 	end
+-- end
+--
+-- get_terminal_size()
+-----------------------------------------------
 
-	if cols <= 110 then
-		require("toggle-pane"):entry("min-preview")
-	end
-end
-
-get_terminal_size()
-
+-- Change the default border symbol
+th.mgr.border_symbol = " "
 -----------------------------------------------
 
 th.git = th.git or {}

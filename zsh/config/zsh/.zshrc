@@ -1,9 +1,6 @@
 # Loading aliases 
 source $ZDOTDIR/aliases/aliases.sh
 
-# Homebrew init
-# eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 # Load completions
 autoload -Uz compinit && compinit
 
@@ -15,7 +12,14 @@ source $ZPLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZPLUGINS/fzf-tab-git/fzf-tab.plugin.zsh
 
 # Keybindings
+bindkey '^[' vi-cmd-mode
+bindkey '^[[1;5D' backward-word
+bindkey '^[[1;5C' forward-word
+bindkey '^[h' backward-word
+bindkey '^[l' forward-word
+bindkey '^H' backward-delete-word
 bindkey '^ ' autosuggest-execute
+bindkey '^b' autosuggest-accept
 bindkey '^p' history-search-backward
 bindkey '^n' history-search-forward
 
@@ -42,7 +46,7 @@ eval "$(zoxide init zsh)"
 eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"    # Oh-my-posh init
 
 # Cowsay init
-moo
+echo -e "\e[32m$(moo -r $(hyprctl splash))\e[0m"
 
 # Mise init
-eval "$(mise activate zsh)"
+eval "$(mise activate zsh --shims)"

@@ -5,3 +5,6 @@
 
 -- Disable animations
 vim.g.snacks_animate = false
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4

@@ -1,6 +1,9 @@
 {
   "extras": [
-
+    "plugins.extras.ai.copilot-chat-extended",
+    "plugins.extras.ai.copilot-extended",
+    "plugins.extras.formatting.prettier-extended",
+    "plugins.extras.lang.csharp-extended"
   ],
   "news": {
     "NEWS.md": "10960"

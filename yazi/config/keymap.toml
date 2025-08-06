@@ -1,9 +1,9 @@
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "T"
 run  = "plugin toggle-pane min-preview"
 desc = "Show or hide the preview pane"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "r"
 run  = "rename --cursor=start"
 desc = "Rename selected file(s)"
@@ -13,13 +13,35 @@ on   = "O"
 run  = "close"
 desc = "Cancel pick"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "z"
 run  = "plugin zoxide"
 desc = "Jump to a directory via zoxide"
 
-[[manager.prepend_keymap]]
+[[mgr.prepend_keymap]]
 on   = "Z"
 run  = "plugin fzf"
 desc = "Jump to a file/directory via fzf"
 
+[[mgr.prepend_keymap]]
+on = [ "g", "d" ]
+run = "cd ~/Desktop"
+desc = "Go to Desktop"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "D" ]
+run = "cd ~/Downloads"
+desc = "Go to Downloads"
+
+[[mgr.prepend_keymap]]
+on = [ "g", "t" ]
+run = "cd ~/.local/share/Trash/files"
+desc = "Go to Trash"
+
+[[mgr.prepend_keymap]]
+on  = "<C-Enter>"
+run = 'shell -- dragon-drop -x -i -T "$1"'
+
+[[mgr.prepend_keymap]]
+on  = "<C-a>"
+run = 'shell -- dragon-drop -x -i -T "$1"'

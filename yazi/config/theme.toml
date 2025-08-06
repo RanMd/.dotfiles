@@ -1,2 +1,18 @@
 [flavor]
-dark = "kanagawa-dragon"
+# dark = "kanagawa-dragon"
+dark = "wallbash"
+
+prepend_files = [
+	{ name = ".editorconfig", text = "" },
+  { name = ".gitignore", text = "" },
+  { name = ".env", text = "" },
+  { name = ".zshenv", text = "" },
+]
+
+prepend_exts = [
+  { name = "js", text = "" },
+]
+
+prepend_conds = [
+  { if = "link & dir", text = "󱧭" },
+]

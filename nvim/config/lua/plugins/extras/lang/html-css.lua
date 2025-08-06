@@ -55,6 +55,10 @@ return {
     },
   },
   {
+    "windwp/nvim-ts-autotag",
+    enabled = true,
+  },
+  {
     "mfussenegger/nvim-lint",
     opts = function(_, opts)
       local stylelint = "stylelint"

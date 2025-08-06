@@ -1,7 +1,7 @@
 local prettier = { "prettierd", "prettier", stop_after_first = true }
 
 return {
-  -- { import = "lazyvim.plugins.extras.formatting.prettier" },  -- Import already in lazy.lua
+  { import = "lazyvim.plugins.extras.formatting.prettier" },
   {
     "williamboman/mason.nvim",
     opts = {

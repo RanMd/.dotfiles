@@ -5,13 +5,6 @@ return {
     -- Plugin: bufferline.nvim
     -- URL: https://github.com/akinsho/bufferline.nvim
     -- Description: A snazzy buffer line (with tabpage integration) for Neovim.
-    "dinhhuy258/git.nvim",
-    enabled = true, -- Disable this plugin
-  },
-  {
-    -- Plugin: bufferline.nvim
-    -- URL: https://github.com/akinsho/bufferline.nvim
-    -- Description: A snazzy buffer line (with tabpage integration) for Neovim.
     "akinsho/bufferline.nvim",
     enabled = false, -- Disable this plugin
   },
@@ -20,15 +13,15 @@ return {
     enabled = false,
   },
   {
-    "echasnovski/mini.icons",
-    enabled = true,
-  },
-  {
-    "RanMd/winbar.nvim",
-    enabled = true,
-  },
-  {
-    "b0o/incline.nvim",
+    "catppuccin/nvim",
     enabled = false,
+  },
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    enabled = false,
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    enabled = false, -- Disable this plugin
   },
 }

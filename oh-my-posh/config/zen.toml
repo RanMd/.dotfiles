@@ -9,7 +9,6 @@ final_space = true
 
 [transient_prompt]
   template = '❯ '
-  filler = '-'
   background = 'transparent'
   foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
   newline = true
@@ -21,7 +20,7 @@ final_space = true
 
   [[blocks.segments]]
     template = '{{ .Path }}'
-    foreground = '#8ba4b0'
+    foreground = 'magenta'
     background = 'transparent'
     type = 'path'
     style = 'plain'
@@ -29,23 +28,24 @@ final_space = true
     [blocks.segments.properties]
       cache_duration = 'none'
       style = 'full'
-      mapped_locations = { "~" = "~", "/mnt/c/Users/Yo/" = "@home" }
 
     [[blocks.segments]]
-    template = " {{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}{{ .HEAD }}{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}"
-    foreground = '#acacac'
-    background = 'transparent'
     type = 'git'
     style = 'plain'
+    template = " {{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}{{ .HEAD }}{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}"
+    foreground = 'magenta'
+    background = 'transparent'
 
     [blocks.segments.properties]
-      branch_icon = ''
+      branch_icon = ' '
       cache_duration = 'none'
       commit_icon = '@'
       fetch_status = true
+      ignore_status = ["~/HyDE"]
 
 [[blocks]]
   type = 'rprompt'
+  background = 'transparent'
   overflow = 'hidden'
 
   [[blocks.segments]]
@@ -69,7 +69,7 @@ final_space = true
     background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}#76946A{{end}}']
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
 
     [blocks.segments.properties]
       cache_duration = 'none'

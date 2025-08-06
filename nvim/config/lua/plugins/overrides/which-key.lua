@@ -5,8 +5,22 @@ return {
   -- IMPORTANT: using event "VeryLazy" to optimize loading time
   "folke/which-key.nvim",
   event = "VeryLazy",
+  init = function()
+    -- Set the timeout for key sequences
+    vim.o.timeout = true
+    vim.o.timeoutlen = 300 -- Set the timeout length to 300 milliseconds
+  end,
   opts = {
     preset = "classic",
     win = { border = "none" },
+  },
+  keys = {
+    {
+      "<leader>?",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Buffer Local Keymaps (which-key)",
+    },
   },
 }

@@ -3,7 +3,7 @@
 # Packages methods
 _isInstalled() {
   package="$1"
-  check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")"
+  check="$(sudo pacman -Qs "${package}" | grep "local" | grep "/\+${package}")"
   checkCustom=$(command -v "$package")
 
   if [[ -n "${check}" || -n "$checkCustom" ]]; then
@@ -35,7 +35,7 @@ _installPackage() {
   else
     echo "${BLUE}${BOLD}::${RESET}${BOLD} Installing $package...${RESET}"
 
-    sudo paru -S "$package"
+    paru -S "$package"
 
     if [[ $(_isInstalled "${package}") == 0 ]]; then
       echo "${pkg} installed successfully."

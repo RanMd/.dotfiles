@@ -22,22 +22,10 @@ else
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
-    -- AI
-    -- { import = "lazyvim.plugins.extras.ai.copilot" },
-    -- { import = "lazyvim.plugins.extras.ai.copilot-chat" },
-
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.editor.harpoon2" },
     { import = "lazyvim.plugins.extras.coding.mini-surround" },
     { import = "lazyvim.plugins.extras.editor.snacks_picker" },
-
-    -- Formatting plugins
-    { import = "lazyvim.plugins.extras.formatting.biome" },
-    { import = "lazyvim.plugins.extras.formatting.prettier" },
-
-    -- Language support plugins
-    { import = "lazyvim.plugins.extras.lang.typescript" },
-    { import = "lazyvim.plugins.extras.lang.json" },
 
     -- import/override with your plugins
     { import = "plugins" },
@@ -45,10 +33,7 @@ else
     { import = "plugins.ui" }, -- Plugins for ui
     { import = "plugins.overrides" }, -- Overrides of some plugins
     { import = "plugins.lsp" }, -- LSP configs
-    { import = "plugins.lang" }, -- Languages
-    { import = "plugins.formatting" }, -- Formaters
     { import = "plugins.coding" }, -- Coding plugins
-    { import = "plugins.ai" }, -- Coding plugins
   }
 end
 

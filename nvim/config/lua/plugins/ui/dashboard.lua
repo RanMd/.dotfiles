@@ -31,6 +31,7 @@ return {
           ---@type snacks.dashboard.Item[]
           keys = {
             { icon = " ", key = "p", desc = "Projects", action = ":lua Snacks.picker.projects()", indent = 0, padding = 1 },
+            { icon = " ", key = "n", desc = "New File", action = ":ene | startinsert", indent = 0, padding = 1 },
             { icon = " ", key = "f", desc = "Find file", action = ":lua Snacks.dashboard.pick('files')", indent = 0, padding = 1 },
             { icon = "󱎸 ", key = "g", desc = "Find text", action = ":lua Snacks.dashboard.pick('live_grep')" , indent = 0 , padding = 1},
             { icon = "󰁯 ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" ,indent = 0, padding = 1 },

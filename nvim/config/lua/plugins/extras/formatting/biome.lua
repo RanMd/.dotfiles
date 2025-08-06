@@ -1,4 +1,5 @@
 return {
+  { import = "lazyvim.plugins.extras.formatting.biome" },
   {
     "neovim/nvim-lspconfig",
     opts = {

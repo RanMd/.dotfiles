@@ -1,6 +1,8 @@
 return {
-  -- { import = "lazyvim.plugins.extras.lang.typescript" }, -- Imported already in lazy.lua
-  -- { import = "lazyvim.plugins.extras.lang.json" },       -- Imported already in lazy.lua
+  { import = "lazyvim.plugins.extras.lang.typescript" },
+  { import = "lazyvim.plugins.extras.lang.json" },
+  { import = "plugins.extras.formatting.biome" },
+  { import = "plugins.extras.formatting.prettier" },
   -- Plugin: tsc.nvim
   -- URL: https://github.com/dmmulroy/tsc.nvim
   -- Description: A Neovim plugin for seamless, asynchronous project-wide TypeScript type-checking using the TypeScript compiler (tsc)
