@@ -28,14 +28,14 @@ create_cmd("ExitPre", {
 -- Adds or Deletes padding in Alacritty when entering or leaving Neovim.
 local padding_group = vim.api.nvim_create_augroup("ChangeAlacrittyPadding", { clear = true })
 
-vim.notify("Me abri")
-
-create_cmd("UIEnter", {
+-- BufEnter should be used instead of VimEnter because VimEnter runs before the terminal opens, and padding is not applied correctly due to the snacks dashboard plugin.
+create_cmd("BufEnter", {
   group = padding_group,
   once = true,
   callback = function()
-    vim.notify("Me ejecute")
     vim.fn.system("alacritty msg config 'window.padding = {x = 15, y = 10}'")
+    vim.fn.system("alacritty msg config 'window.opacity = 0.95'")
+    vim.fn.system("alacritty msg config 'font.size = 11'")
     vim.fn.system("alacritty msg config 'colors.primary.background = \"#181616\"'")
   end,
 })

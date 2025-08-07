@@ -36,12 +36,6 @@ return {
   },
   {
     "seblyng/roslyn.nvim",
-    opts = {
-      settings = {
-        ["csharp|formatting"] = {
-          dotnet_organize_imports_on_format = true,
-        },
-      },
-    },
+    opts = {},
   },
 }

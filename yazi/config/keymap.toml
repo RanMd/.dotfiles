@@ -40,8 +40,4 @@ desc = "Go to Trash"
 
 [[mgr.prepend_keymap]]
 on  = "<C-Enter>"
-run = 'shell -- dragon-drop -x -i -T "$1"'
-
-[[mgr.prepend_keymap]]
-on  = "<C-a>"
-run = 'shell -- dragon-drop -x -i -T "$1"'
+run = 'shell --block -- dragon-file "$1"'

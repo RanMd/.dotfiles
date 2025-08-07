@@ -15,9 +15,6 @@ return {
     version = "*",
     opts = {
       signs = false,
-      colors = {
-        error = { "#BB5D65" },
-      },
     },
   },
 }

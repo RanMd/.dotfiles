@@ -13,7 +13,7 @@ return {
       desc = "Resize left",
     },
     {
-      "<C-A-j",
+      "<C-A-j>",
       function()
         require("smart-splits").resize_down()
       end,
@@ -21,7 +21,7 @@ return {
       desc = "Resize down",
     },
     {
-      "<C-A-k",
+      "<C-A-k>",
       function()
         require("smart-splits").resize_up()
       end,
