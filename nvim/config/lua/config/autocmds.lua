@@ -33,10 +33,10 @@ create_cmd("BufEnter", {
   group = padding_group,
   once = true,
   callback = function()
-    vim.fn.system("alacritty msg config 'window.padding = {x = 15, y = 10}'")
-    vim.fn.system("alacritty msg config 'window.opacity = 0.95'")
-    vim.fn.system("alacritty msg config 'font.size = 11'")
-    vim.fn.system("alacritty msg config 'colors.primary.background = \"#181616\"'")
+    vim.fn.system("alacritty msg config 'window.padding = {x = 20, y = 20}'")
+    -- vim.fn.system("alacritty msg config 'window.opacity = 0.80'")
+    -- vim.fn.system("alacritty msg config 'font.size = 11'")
+    -- vim.fn.system("alacritty msg config 'colors.primary.background = \"#181616\"'")
   end,
 })
 

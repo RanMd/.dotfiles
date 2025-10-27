@@ -88,15 +88,6 @@ ac("TextYankPost", {
   end,
 })
 
--- Fix conceallevel for json files
-ac({ "FileType" }, {
-  group = augroup("json_conceal"),
-  pattern = { "json", "jsonc", "json5" },
-  callback = function()
-    vim.opt_local.conceallevel = 0
-  end,
-})
-
 -- Highlight config
 
 local hls = {

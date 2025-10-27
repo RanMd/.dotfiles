@@ -1,15 +1,6 @@
 return {
   -- Rerence lazyvim plugin: https://github.com/LazyVim/LazyVim/blob/25abbf546d564dc484cf903804661ba12de45507/lua/lazyvim/plugins/extras/lang/omnisharp.lua
   {
-    "nvimtools/none-ls.nvim",
-    optional = true,
-    opts = function(_, opts)
-      local nls = require("null-ls")
-      opts.sources = opts.sources or {}
-      table.insert(opts.sources, nls.builtins.formatting.csharpier)
-    end,
-  },
-  {
     "stevearc/conform.nvim",
     optional = true,
     opts = {
@@ -36,6 +27,7 @@ return {
   },
   {
     "seblyng/roslyn.nvim",
+    ft = { "cs" },
     opts = {},
   },
 }

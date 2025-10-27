@@ -1,6 +1,6 @@
 local colors = {
   black = "#282828",
-  white = "#8992a7",
+  white = "#b6927b",
   red = "#BB5D65",
   green = "#8a9a7b",
   yellow = "#8992a7",
@@ -51,18 +51,13 @@ return {
     },
     sections = {
       lualine_a = {},
-      lualine_b = { LazyVim.lualine.pretty_path() },
-      lualine_c = { "diff", "diagnostics" },
-      lualine_x = {
-        "macro_recording",
-        "branch",
-      },
+      lualine_b = { "filename" },
+      lualine_c = { "diagnostics" },
+      lualine_x = { "macro_recording" },
       lualine_y = {
         { "location", padding = { left = 0, right = 1 } },
       },
-      lualine_z = {
-        { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-      },
+      lualine_z = {},
     },
   },
 }

@@ -49,4 +49,4 @@ eval "$(oh-my-posh init zsh --config ~/.config/oh-my-posh/zen.toml)"    # Oh-my-
 echo -e "\e[32m$(moo -r $(hyprctl splash))\e[0m"
 
 # Mise init
-eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh)"

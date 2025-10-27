@@ -7,7 +7,7 @@ return {
   },
   {
 
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     keys = false,
   },
 }

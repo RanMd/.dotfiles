@@ -34,6 +34,7 @@ DEPENDENCIES=(
     "mangohud"
     "mangojuice"
     "intel-undervolt"
+    "localepurge"
     # Neovim dependencies
     "neovim"
     "ripgrep"
@@ -53,9 +54,6 @@ DEPENDENCIES=(
     # PODMAN
     "podman"
     "podman-compose"
-    # VSC
-    "code"
-    "ttf-firacode-nerd"
 )
 
 _installPackages ${DEPENDENCIES[@]}

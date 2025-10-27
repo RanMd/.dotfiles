@@ -4,6 +4,7 @@ return {
     keymap = {
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
     },
     completion = {
       menu = {
@@ -14,9 +15,7 @@ return {
       },
       documentation = {
         auto_show = false,
-        window = {
-          max_width = 50,
-        },
+        window = { border = "single" },
       },
       list = {
         selection = {
@@ -27,21 +26,6 @@ return {
       ghost_text = {
         enabled = false,
       },
-      -- accept = {
-      --   auto_brackets = {
-      --     enabled = false,
-      --   },
-      -- },
-    },
-    signature = {
-      enabled = false,
-      window = {
-        border = "rounded",
-        show_documentation = true,
-      },
-      -- trigger = {
-      --   enabled = false,
-      -- },
     },
   },
 }

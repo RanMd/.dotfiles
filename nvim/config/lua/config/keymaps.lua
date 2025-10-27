@@ -19,16 +19,13 @@ map.set("n", "<C-e>", "gg<S-V>G", { desc = "Select all Text", silent = true, nor
 -- Search inside visually highlighted text
 map.set("x", "g/", "<esc>/\\%V", { silent = false, desc = "Search Inside Visual Selection" })
 
------ OIL -----
-map.set("n", "<leader>;", "<CMD>Oil<CR>", { desc = "(Oil) Open parent directory" })
-
 -- Delete all buffers but the current one
-map.set(
-  "n",
-  "<leader>bq",
-  '<Esc>:%bdelete|edit #|normal`"<Return>',
-  { desc = "Delete other buffers but the current one" }
-)
+-- map.set(
+--   "n",
+--   "<leader>bq",
+--   '<Esc>:%bdelete|edit #|normal`"<Return>',
+--   { desc = "Delete other buffers but the current one" }
+-- )
 
 -- Unbind space + *
 map.del("n", "<Space><Space>l>")

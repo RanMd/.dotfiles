@@ -2,12 +2,12 @@
 
 # Backup function
 bak() {
-    if [[ -f "$1" ]]; then
-        cp "$1" "$1.bak"
-        echo "Backup creado: $1.bak"
-    else
-        echo "Error: El archivo '$1' no existe."
-    fi
+  if [[ -f "$1" ]]; then
+    cp "$1" "$1.bak"
+    echo "Backup creado: $1.bak"
+  else
+    echo "Error: El archivo '$1' no existe."
+  fi
 }
 
 alias nlof='~/.scripts/fzf_listoldfiles.sh'
@@ -19,14 +19,17 @@ alias lsl="ls -l"
 alias lsa="ls -al"
 alias f="fastfetch"
 alias c="clear"
+alias snvim="sudoedit nvim"
 
 # Yazi wrapper (restore the cursor style)
 # echo -e -n "\x1b[\x32 q" # changes to steady block
 # echo -e -n "\x1b[\x34 q" # changes to steady underline
 # echo -e -n "\x1b[\x36 q" # changes to steady bar
 function y() {
-    yazi "$@"
-    echo -e -n "\x1b[\x36 q"
+  alacritty msg config 'window.padding = {x = 40, y = 30}'
+  yazi "$@"
+  alacritty msg config --reset
+  echo -e -n "\x1b[\x36 q"
 }
 
 # Cowsay alias

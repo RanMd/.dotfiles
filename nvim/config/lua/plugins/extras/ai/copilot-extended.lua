@@ -17,6 +17,14 @@ return {
       panel = { enabled = false },
       filetypes = {
         ["*"] = true,
+        ["*.env*"] = false,
+      },
+      server_opts_overrides = {
+        settings = {
+          telemetry = {
+            telemetryLevel = "off",
+          },
+        },
       },
     },
   },

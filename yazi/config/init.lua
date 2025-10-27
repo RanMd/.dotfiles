@@ -11,7 +11,7 @@ require("toggle-pane"):entry("min-parent")
 
 -- Hide the preview pane if the width of the window is small
 -- local function get_terminal_size()
--- 	local h = io.popen("tput lines && tput cols", "r")
+-- local h = io.popen("tput lines && tput cols", "r")
 -- 	local rows = tonumber(h:read("*l"))
 -- 	local cols = tonumber(h:read("*l"))
 -- 	h:close()

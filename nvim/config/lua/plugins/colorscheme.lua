@@ -5,16 +5,19 @@ return {
     name = "kanagawa",
     priority = 1000, -- High priority to ensure it loads early
     opts = {
-      transparent = true, -- Enable transparent background
-      theme = "dragon", -- Set the theme variant to 'dragon'
+      functionStyle = { italic = true },
+      keywordStyle = { italic = true },
+      typeStyle = { italic = true },
+      transparent = true,
       colors = {
         theme = {
+          all = { ui = { bg_gutter = "none" } },
           dragon = {
             ui = {
-              bg_gutter = "none",
+              fg = "#c4b28a",
             },
             -- syn = {
-            --   preproc = "#b6927b", -- i.e import - from
+            --   operator = "#c0a36e",
             -- },
             diag = {
               error = "#E46876",
@@ -47,12 +50,6 @@ return {
           -- Custom color cursorline
           CursorLineNr = { fg = theme.ui.fg_dim },
 
-          -- Custom color file icon
-          MiniIconsAzure = { fg = "#8992a7" },
-
-          -- Custom special color (color de la carpeta con el icono)
-          Special = { fg = "#8992a7" },
-
           -- Custom colors for TreeSitter
           ["@json.key.level0"] = { fg = theme.syn.number }, -- color for properties
           ["@json.key.level1"] = { fg = theme.syn.identifier }, -- color for properties
@@ -62,6 +59,7 @@ return {
           ["@json.key.level5"] = { fg = theme.syn.fun }, -- color for properties
 
           ["@module"] = { fg = theme.syn.identifier },
+          ["@keyword.return"] = { link = "Keyword" },
         }
       end,
     },
@@ -71,6 +69,7 @@ return {
     opts = {
       -- Set the default colorscheme
       colorscheme = "kanagawa-dragon",
+      -- colorscheme = "kanagawa",
     },
   },
 }

@@ -1,12 +1,14 @@
 {
   "extras": [
-    "plugins.extras.ai.copilot-chat-extended",
+    "lazyvim.plugins.extras.lang.angular",
+    "plugins.extras.ai.codecompanion",
     "plugins.extras.ai.copilot-extended",
-    "plugins.extras.formatting.prettier-extended",
-    "plugins.extras.lang.csharp-extended"
+    "plugins.extras.editor.oil",
+    "plugins.extras.lang.godot-mono",
+    "plugins.extras.lang.typescript-extend"
   ],
   "news": {
-    "NEWS.md": "10960"
+    "NEWS.md": "11866"
   },
   "version": 8
 }

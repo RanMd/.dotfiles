@@ -3,7 +3,7 @@ local prettier = { "prettierd", "prettier", stop_after_first = true }
 return {
   { import = "lazyvim.plugins.extras.formatting.prettier" },
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = {
       ensure_installed = {
         "prettierd",

@@ -32,7 +32,6 @@ else
     { import = "plugins.editor" }, -- Plugins for the editor
     { import = "plugins.ui" }, -- Plugins for ui
     { import = "plugins.overrides" }, -- Overrides of some plugins
-    { import = "plugins.lsp" }, -- LSP configs
     { import = "plugins.coding" }, -- Coding plugins
   }
 end
