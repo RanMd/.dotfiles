@@ -16,3 +16,7 @@
 
 # podman ignores
  **/podman/config/containers/podman
+
+# neovim ignores
+.luarc.json
+.neoconf.json

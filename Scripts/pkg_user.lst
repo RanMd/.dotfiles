@@ -1,0 +1,39 @@
+# --------------------------------------------------- // System
+git
+fzf
+cowsay
+zoxide
+oh-my-posh-bin
+bleachbit
+mise
+cava
+trash-cli
+zip
+dragon-drop
+mangohud
+mangojuice
+intel-undervolt
+localepurge
+
+# --------------------------------------------------- // Editor
+neovim
+ripgrep
+fd
+
+# --------------------------------------------------- // ZSH
+zsh
+zsh-autosuggestions
+zsh-syntax-highlighting
+
+# --------------------------------------------------- // Yazi
+yazi
+7zip
+jq
+imagemagick
+wl-clipboard
+resvg
+ueberzugpp
+
+# --------------------------------------------------- // Podman
+podman
+podman-compose

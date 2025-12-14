@@ -1,0 +1,21 @@
+# HyDE Configuration PSV File (My configurations)
+
+Structure:
+#?        flag|path|target|dependency
+
+Flags:
+L = Link - Create a symbolic link from path to target
+         - If target exists, it will be backed up before linking
+
+ Nvim 
+L|${HOME}/.config|nvim|neovim
+
+ Podman 
+L|${HOME}/.config|containers|podman
+
+ Oh My Posh 
+L|${HOME}/.config|oh-my-posh|oh-my-posh-bin
+
+ Zsh 
+L|${HOME}|.zshenv|zsh
+L|${HOME}/.config|zsh|zsh
