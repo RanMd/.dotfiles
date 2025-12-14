@@ -1,29 +1,16 @@
-require("full-border"):setup({
-	-- Available values: ui.Border.PLAIN, ui.Border.ROUNDED
-	type = ui.Border.PLAIN,
-	-- Available values: false, true
-	borders = false,
-})
+local old_build = Tab.build
+Tab.build = function(self, ...)
+	self._chunks = {
+		self._chunks[1]:pad(ui.Pad(1, 0, 1, 1)),
+		self._chunks[2]:pad(ui.Pad(1, 0, 1, 0)),
+		self._chunks[3]:pad(ui.Pad(1, 1, 1, 0)),
+	}
+	old_build(self, ...)
+end
 
--- local toggle = require("toggle-pane")
--- toggle:entry("min-parent")
 require("toggle-pane"):entry("min-parent")
 
--- Hide the preview pane if the width of the window is small
--- local function get_terminal_size()
--- local h = io.popen("tput lines && tput cols", "r")
--- 	local rows = tonumber(h:read("*l"))
--- 	local cols = tonumber(h:read("*l"))
--- 	h:close()
---
--- 	if cols <= 110 then
--- 		toggle:entry("min-preview")
--- 	end
--- end
---
--- get_terminal_size()
 -----------------------------------------------
-
 -- Change the default border symbol
 th.mgr.border_symbol = " "
 -----------------------------------------------
@@ -35,10 +22,34 @@ th.git.added_sign = "A"
 th.git.untracked_sign = "U"
 th.git.ignored_sign = "I"
 
-th.git.modified = ui.Style():fg("#aa9472")
-th.git.deleted = ui.Style():fg("red"):bold()
-th.git.untracked = ui.Style():fg("red"):bold()
-th.git.added = ui.Style():fg("green"):bold()
-
 require("git"):setup()
-require("no-status"):setup()
+
+require("yatline"):setup({
+	show_background = false,
+	section_separator = { open = "", close = "" },
+	part_separator = { open = "", close = "" },
+	inverse_separator = { open = "", close = "" },
+	display_status_line = false,
+
+	style_a = {
+		fg = "yellow",
+		bg_mode = {},
+	},
+
+	header_line = {
+		left = {
+			section_a = {
+				{ type = "string", custom = false, name = "tab_path" },
+			},
+			section_b = {},
+			section_c = {},
+		},
+		right = {
+			section_a = {
+				{ type = "line", custom = false, name = "tabs", params = { "left" } },
+			},
+			section_b = {},
+			section_c = {},
+		},
+	},
+})

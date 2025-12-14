@@ -1,28 +1,27 @@
-
 [mgr]
-marker_copied = { fg = "#8a9a7b", bg = "#8a9a7b" }
-marker_cut = { fg = "#e46876", bg = "#e46876" }
-marker_marked = { fg = "#a292a3", bg = "#a292a3" }
-marker_selected = { fg = "#e46876", bg = "#e46876" }
+marker_copied = { fg = "green", bg = "green" }
+marker_cut = { fg = "red", bg = "red" }
+marker_marked = { fg = "magenta", bg = "magenta" }
+marker_selected = { fg = "yellow", bg = "yellow" }
 
-cwd = { fg = "#B8B8B8" }
-hovered = { fg = "#FFFFFF", bg = "#1A1A1A" }
+cwd = { fg = "yellow" }
+hovered = { fg = "yellow", bg = "black" }
 
 preview_hovered = { dim = true }
 
-find_keyword = { fg = "#e46876", bg = "#181616" }
+find_keyword = { underline = true, fg = "red" }
 find_position = {}
 
-count_copied = { fg = "#181616", bg = "#8a9a7b" }
-count_cut = { fg = "#181616", bg = "#e46876" }
-count_selected = { fg = "#181616", bg = "#c0a574" }
+count_copied = { fg = "black", bg = "green" }
+count_cut = { fg = "black", bg = "red" }
+count_selected = { fg = "black", bg = "yellow" }
 
 border_symbol = "│"
-border_style = { fg = "#878787" }
+border_style = { fg = "white" }
 
 [tabs]
-active   = { fg = "#131313", bg = "#949494", bold = true }
-inactive = { fg = "#949494", bg = "#131313" }
+active   = { fg = "yellow", bg = "black" }
+inactive = { fg = "black", bg = "blue" }
 sep_inner = { open = "", close = "" }
 sep_outer = { open = "", close = "" }
 
@@ -94,34 +93,34 @@ title_error = { fg = "#ff5d62" }
 
 [filetype]
 rules = [
+    # broken links
+    { name = "*", is = "orphan", fg = "red" },
+
     # images
-    { mime = "image/*", fg = "#B8B8B8" },
+    { mime = "image/*", fg = "magenta" },
 
     # media
-    { mime = "{audio,video}/*", fg = "#a292a3" },
+    { mime = "{audio,video}/*", fg = "magenta" },
 
     # archives
-    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#e46876" },
-
-    # documents
-    { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "#6a9589" },
-
-    # languages
-    { name = "*.{c,cpp,h,py,js,ts,java,cs,html,css,md,go,jsx,tsx,sh,kt,lua}", fg = "#D6D6D6" },
-
-    # links
-    { name = "*", is = "link", fg = "#B8B8B8" },
-
-    # directories links
-    { name = "*/", is = "link", fg = "#B8B8B8" },
-
-    # broken links
-    { name = "*", is = "orphan", fg = "#B8B8B8" },
+    { mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
 
     # executables
-    { name = "*", is = "exec", fg = "#76946a" },
+    { name = "*", is = "exec", fg = "green" },
+
+    # documents
+    { mime = "application/{pdf,doc,rtf,vnd.*}", fg = "green" },
+
+    # languages
+    { name = "*.{c,cpp,h,py,js,ts,java,cs,html,css,md,go,jsx,tsx,sh,kt,lua}", fg = "yellow" },
+
+    # links
+    { name = "*", is = "link", fg = "cyan" },
+
+    # directories links
+    { name = "*/", is = "link", fg = "cyan" },
 
     # fallback
-    { name = "*", fg = "#FFFFFF" },
-    { name = "*/", fg = "#B8B8B8" },
+    { name = "*", fg = "white" },
+    { name = "*/", fg = "blue" },
 ]

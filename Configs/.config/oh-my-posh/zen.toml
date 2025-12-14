@@ -10,7 +10,7 @@ final_space = true
 [transient_prompt]
   template = '❯ '
   background = 'transparent'
-  foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}magenta{{end}}']
+  foreground = 'green'
   newline = true
 
 [[blocks]]
@@ -20,7 +20,7 @@ final_space = true
 
   [[blocks.segments]]
     template = '{{ .Path }}'
-    foreground = 'magenta'
+    foreground = 'yellow'
     background = 'transparent'
     type = 'path'
     style = 'plain'
@@ -33,7 +33,7 @@ final_space = true
     type = 'git'
     style = 'plain'
     template = " {{ if or (.Working.Changed) (.Staging.Changed) (gt .StashCount 0) }}{{ .HEAD }}{{ else }}{{ .HEAD }}{{ end }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}"
-    foreground = 'magenta'
+    foreground = 'yellow'
     background = 'transparent'
 
     [blocks.segments.properties]
@@ -69,7 +69,7 @@ final_space = true
     background = 'transparent'
     type = 'text'
     style = 'plain'
-    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}green{{end}}']
+    foreground_templates = ['{{if gt .Code 0}}red{{end}}', '{{if eq .Code 0}}white{{end}}']
 
     [blocks.segments.properties]
       cache_duration = 'none'

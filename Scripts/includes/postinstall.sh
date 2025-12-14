@@ -20,3 +20,9 @@ else
 fi
 
 source ~/.local/bin/init-ram-cache
+
+# Install yazi plugins
+
+ya pkg add yazi-rs/plugins:git
+ya pkg add yazi-rs/plugins:toggle-pane
+ya pkg add imsi32/yatline

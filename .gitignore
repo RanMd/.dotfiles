@@ -1,22 +1,13 @@
-**/tmux/plugins
-**/zellij/plugins
+# nvim
+lazyvim.json
 
-# zsh ignores
+#yazi
+package.toml
+Configs/.config/yazi/plugins/
 
-**/zsh/config/zsh/*
-**/zsh/config/zsh/.*
-!**/zsh/config/zsh/.zshrc
-!**/zsh/config/zsh/aliases
+#zsh
+.zcompdump
+.zsh_history
 
-# yazi ignores
 
-**/yazi/config/plugins
-**/yazi/config/package.toml
-**/yazi/config/flavors
 
-# podman ignores
- **/podman/config/containers/podman
-
-# neovim ignores
-.luarc.json
-.neoconf.json
