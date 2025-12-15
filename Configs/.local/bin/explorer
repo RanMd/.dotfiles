@@ -1,0 +1,7 @@
+#!/bin/sh
+
+export PATH=/home/alexander/.local/share/mise/installs/node/24.1.0/bin:$PATH
+alacritty \
+  --title "Explorer" \
+  -o "window.padding={ x = 30, y = 25 }" \
+  -e yazi ~/Desktop

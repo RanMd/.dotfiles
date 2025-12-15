@@ -1,0 +1,58 @@
+[env]
+TERM = "xterm-256color"
+WINIT_X11_SCALE_FACTOR = "1"
+
+[window]
+padding = { x = 40, y = 10 }
+dynamic_padding = false
+opacity = 0.65
+
+[window.class]
+instance = "Alacritty"
+general = "Alacritty"
+
+[scrolling]
+history = 1000
+multiplier = 3
+
+[font]
+size = 12
+
+[font.normal]
+family = "FiraCode Nerd Font Mono"
+style = "Regular"
+
+[font.bold]
+style = "Regular"
+
+[font.italic]
+style = "Italic"
+
+[font.bold_italic]
+style = "Bold Italic"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[cursor]
+style = "Beam"
+vi_mode_style = "None"
+unfocused_hollow = true
+thickness = 0.15
+# Smooth motion settings
+smooth_motion = true
+smooth_motion_factor = 1.0
+smooth_motion_spring = 0.5
+smooth_motion_max_stretch_x = 3.0
+smooth_motion_max_stretch_y = 3.0
+
+[mouse]
+hide_when_typing = true
+
+[general]
+live_config_reload = true
+working_directory = "None"
+import = [
+"bindings.toml",
+"theme.toml",
+]

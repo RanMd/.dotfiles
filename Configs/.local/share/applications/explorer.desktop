@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Explorer
+GenericName=File explorer
+Comment=A simple file explorer application
+Exec=/home/alexander/.local/bin/explorer
+Icon=file-manager
+Terminal=false
+MimeType=inode/directory;
+Categories=Utility;FileManager;

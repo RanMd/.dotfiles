@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Notepad
+GenericName=Text Editor
+Comment=Notepad application using Nvim
+Exec=~/.local/bin/notepad
+Icon=text-editor
+Terminal=false
+Categories=Utility;TextEditor;
+MimeType=application/x-ejemplo;

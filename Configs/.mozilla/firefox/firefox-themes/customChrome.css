@@ -1,0 +1,66 @@
+/* Add your own custom styles here */
+:root {
+  /* Url color Ex. https://chatgpt.com */
+  --gnome-urlbar-color: #d7d7d7;
+  /* Shield/icons color  */
+  --gnome-toolbar-icon-fill: #959595;
+  /* Foreground active tab  */
+  --gnome-tabbar-tab-active-color: #d7d7d7;
+}
+
+/* Move url input left */
+#urlbar-input {
+  text-align: left !important;
+  padding: 0 28px 0 0 !important;
+}
+
+/* Hover url input  */
+#urlbar .urlbar-input-container:hover {
+  box-shadow: inset 0 0 1px var(--gnome-hover-urlbar-border-color) !important;
+}
+
+#urlbar[breakout][breakout-extend] {
+  outline: none !important;
+}
+
+/* Tab icon image more in keeping with the topic */
+.tab-icon-image {
+  opacity: 0.85;
+}
+
+/* Search bar improves */
+#urlbar[breakout][breakout-extend] #urlbar-input-container,
+#urlbar[breakout][breakout-extend] #urlbar-input-container:hover,
+#urlbar[breakout][breakout-extend] .urlbar-input-container,
+#urlbar[breakout][breakout-extend] .urlbar-input-container:hover {
+  background: var(--gnome-inactive-urlbar-background) !important;
+  box-shadow: none !important;
+}
+
+/* Search sugerences improves */
+.urlbarView,
+/* Tab description (Hover the active tab)*/
+slot:nth-child(1),
+/* Context menu */
+.menupopup-arrowscrollbox {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.24) !important;
+  border-radius: 5px !important;
+  border: none !important;
+}
+
+/* Navigation icons in context menu */
+#context-navigation menuitem.menuitem-iconic[disabled="true"] {
+  background-image: none !important;
+}
+
+/* Reload and Bookmark icons in context menu */
+#context-navigation menuitem {
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Reload and Bookmark icons in context menu (Hover) */
+#context-navigation menuitem:not([disabled]):hover {
+  background-image: none !important;
+  background-color: #3e3e3e !important;
+}

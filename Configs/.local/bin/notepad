@@ -1,0 +1,10 @@
+#!/bin/sh
+
+export PATH=/home/alexander/.local/share/mise/installs/node/24.1.0/bin:$PATH
+work_dir="$HOME/Desktop"
+
+alacritty \
+  --title "Notepad" \
+  --working-directory="$work_dir" \
+  -o "window.padding={x=15,y=25}" \
+  -e nvim

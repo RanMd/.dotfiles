@@ -1,0 +1,81 @@
+#!/bin/bash
+
+# Script to create a RAM disk for apps
+
+set -e
+
+TMP_DIR="/tmp"
+
+make_dir() {
+    src="$1"
+    cache_dir="$2"
+
+    mkdir -p "$cache_dir"
+    chmod 1777 "$cache_dir"
+
+    [ -L "$src" ] || [ -d "$src" ] && rm -rf "$src"
+
+    ln -s "$cache_dir" "$src"
+}
+
+make_sub_dirs() {
+    folder_name=$1
+    parent_dir=$2
+    local sources="${@:3}"
+
+    DIR_NAME=$TMP_DIR/$folder_name
+
+    for src in $sources; do
+        echo "Creating $parent_dir/$src in $DIR_NAME/$src"
+        make_dir "$parent_dir/$src" "$DIR_NAME/$src"
+    done
+}
+
+#Firefox
+
+FIREFOX_CACHE_LINK="$HOME/.cache/mozilla"
+FIREFOX_RAM_CACHE="$TMP_DIR/firefox-cache"
+
+make_dir "$FIREFOX_CACHE_LINK" "$FIREFOX_RAM_CACHE"
+
+PROFILE=$(basename ~/.mozilla/firefox/*.default-release)
+FIREFOX_SUB_DIRS=(
+    "cache2"
+    "crashes"
+    "minidumps"
+    "saved-telemetry-pings"
+    "sessionstore-backups"
+    "settings"
+    "security_state"
+    "features"
+    "gmp-gmpopenh264"
+    "gmp-widevinecdm"
+    "datareporting"
+    "chrome_debugger_profile"
+)
+
+FIREFOX_RAM_PROFILE_DIR="firefox-cache-profile"
+FIREFOX_PROFILE_DIR="$HOME/.mozilla/firefox/$PROFILE"
+
+make_sub_dirs "$FIREFOX_RAM_PROFILE_DIR" "$FIREFOX_PROFILE_DIR" "${FIREFOX_SUB_DIRS[@]}"
+
+# Spotify
+
+SPOTIFY_CACHE_LINK="$HOME/.cache/spotify/Data"
+SPOTIFY_RAM_CACHE="$TMP_DIR/spotify-cache"
+
+make_dir "$SPOTIFY_CACHE_LINK" "$SPOTIFY_RAM_CACHE"
+
+# Spotify Cache Directory
+SPOTIFY_CACHE_LINK="$HOME/.cache/spotify/Default/Cache/"
+SPOTIFY_RAM_CACHE="$TMP_DIR/spotify-cache-data"
+
+make_dir "$SPOTIFY_CACHE_LINK" "$SPOTIFY_RAM_CACHE"
+
+# archivos temporales o regenerables
+# rm -f AlternateServices.bin
+# rm -f SiteSecurityServiceState.bin
+# rm -f enumerate_devices.txt
+# rm -f serviceworker.txt
+# rm -f sessionCheckpoints.json
+# rm -f times.json

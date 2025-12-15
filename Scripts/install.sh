@@ -5,6 +5,10 @@ DOT_DIR=$(dirname "$(realpath "${SCRIPT_DIR}")")
 HYDE_DIR="${HOME}/HyDE"
 DRY_RUN=false
 
+install_flag=false
+restore_flag=false
+nvidia_flag=false
+
 source "${SCRIPT_DIR}/includes/colors.sh"
 source "${SCRIPT_DIR}/includes/library.sh"
 
@@ -14,8 +18,20 @@ args=""
 
 while getopts idrstmnh opt; do
   case $opt in
-  i | d | s | r | m | n)
+  d | s | m)
     args="${args}${opt}"
+    ;;
+  n)
+    nvidia_flag=true
+    args="${args}n"
+    ;;
+  r)
+    restore_flag=true
+    args="${args}r"
+    ;;
+  i)
+    install_flag=true
+    args="${args}i"
     ;;
   t)
     DRY_RUN=true
@@ -37,6 +53,22 @@ done
 
 if [ -n "$args" ]; then
   args="-$args"
+fi
+
+if [ "$install_flag" = true ] && [ "$restore_flag" = true ]; then
+  echo "${RED}Note:${RESET} First, perform the installation, and then restore the configurations."
+  echo "Reminder: Install grub and firefox themes after the installation is complete."
+  exit 1
+fi
+
+if [ "$install_flag" = false ] && [ "$restore_flag" = false ]; then
+  echo "${RED}Error:${RESET} You must specify at least one of the following options: -i (install) or -r (restore configurations)."
+  exit 1
+fi
+
+if [ "$nvidia_flag" = false ]; then
+  echo "${YELLOW}Note:${RESET} Are you sure you want to run the Nvidia configuration?"
+  exit 0
 fi
 
 echo ${YELLOW}
@@ -97,7 +129,11 @@ echo
 echo "${GREEN}[HyDE]${RESET} Running HyDE script"
 
 cd "${HYDE_DIR}/Scripts"
-./install.sh "${args}" pkg_user.lst
+
+if [ "$install_flag" = true ]; then
+  ./install.sh "${args}r" pkg_user.lst
+  exit 0
+fi
 
 echo ${YELLOW}
 cat <<'EOF'
@@ -110,20 +146,28 @@ if [ "$DRY_RUN" = true ]; then
   export flg_DryRun=1
 fi
 
-./restore_cfg.sh "${SCRIPT_DIR}/config.psv" "${DOT_DIR}/Configs"
+if [ "$restore_flag" = true ]; then
+  ./restore_cfg.sh "${SCRIPT_DIR}/config.psv" "${DOT_DIR}/Configs"
+fi
 
 echo
 echo "${GREEN}DOTFILES Installation${RESET} :: COMPLETED"
 
-echo ${YELLOW}
+cd "${SCRIPT_DIR}"
 
+echo ${YELLOW}
 cat <<'EOF'
 -----------------
 POST Installation
 -----------------
 EOF
-
 echo ${RESET}
+
+echo "${GREEN}[POST]${RESET} Running POST installation script"
+
+if [ "$DRY_RUN" = false ]; then
+  ./includes/postinstall.sh
+fi
 
 echo "${GREEN}POST Installation${RESET} :: COMPLETED"
 
@@ -133,5 +177,3 @@ cat <<'EOF'
 Installation has finished! Please restart the computer to apply all changes.
 ----------------------------------------------------------------------------
 EOF
-
-# No hay nada aun, pero debes desactivar el swap (solo como recordatorio)

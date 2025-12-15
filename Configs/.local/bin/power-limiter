@@ -1,0 +1,54 @@
+#!/bin/bash
+
+LIMIT_UP="# ---- Profile ----"
+LIMIT_DOWN="# -----------------"
+
+TEMPLATE="
+$LIMIT_UP
+# GAME
+power package LIMIT
+$LIMIT_DOWN"
+
+CONFIG_FILE="/etc/intel-undervolt.conf"
+LINE=22
+
+# File for mangohud to read CPU energy usage
+MANGOHUD_FILE="/sys/class/powercap/intel-rapl:0/energy_uj"
+
+modify_power_limit() {
+    local game="$1"
+    local limit="$2"
+
+    [ -r "$MANGOHUD_FILE" ] || chmod o+r "$MANGOHUD_FILE"
+
+    # Comment unnecessary lines
+    sed -i \
+        -e "s/^undervolt/# undervolt/" \
+        -e "/^daemon/ {/power/! s/daemon/# daemon/}" \
+        "$CONFIG_FILE"
+
+    # Create profile from template
+    profile=$(sed \
+        -e "s/GAME/$game/" \
+        -e "s/LIMIT/$limit/" <<<"$TEMPLATE")
+
+    # Delete old profile
+    sed -i \
+        "/$LIMIT_UP/, \
+    /$LIMIT_DOWN/d" \
+        "$CONFIG_FILE"
+
+    residual_line=$((LINE + 2))
+
+    sed -i "$residual_line{/^$/d}" "$CONFIG_FILE"
+
+    sed -i \
+        "${LINE}r /dev/stdin" \
+        "$CONFIG_FILE" <<<"$profile"
+}
+
+game_name="$1"
+limit="$2"
+
+systemctl start intel-undervolt-loop.service
+modify_power_limit "$game_name" "$limit"

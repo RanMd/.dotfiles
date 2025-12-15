@@ -1,0 +1,30 @@
+[colors.primary]
+foreground = "#F8F8F8"
+background = "#101010"
+
+[colors.cursor]
+cursor = '#F8F8F8'
+text = '#101010'
+
+[colors.selection]
+text = '#101010'
+background = '#F8F8F8'
+
+[colors.normal]
+black   = "#101010"
+red     = "#E6A3A8"
+green   = "#C9D6B8"
+yellow  = '#F8DD96'
+blue    = "#BFC6CC"
+magenta = "#C3A8B4"
+cyan    = "#B8CED1"
+white   = "#F8F8F8"
+
+[colors.search]
+matches = { foreground = "#101010", background = "#F8F8F8" }
+focused_match = { foreground = "#F8F8F8", background = "#101010" }
+
+[colors.hints]
+start = { foreground = "#1d1f21", background = "#e9ff5e" }
+end = { foreground = "#e9ff5e", background = "#1d1f21" }
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+on_special=$(
+    hyprctl monitors -j |
+        jq '.[] | select(.specialWorkspace.id != 0) | .specialWorkspace.name'
+)
+
+if [ -z "$on_special" ]; then
+    hyprctl dispatch togglespecialworkspace
+    exit 0
+fi
+
+name=$(sed -e 's/"//g' -e 's/^special://' <<<"$on_special")
+hyprctl dispatch togglespecialworkspace "$name"

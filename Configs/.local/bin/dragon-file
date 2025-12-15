@@ -1,0 +1,15 @@
+#!/bin/bash
+
+file="$1"
+bash=$$
+
+processes=$(pstree -spA "$bash")
+terminal_proc=$(
+    awk -F'[-|`+]+' '{ for (i=1;i<=NF;i++) print $i }' <<<$processes |
+        grep alacritty |
+        sed -rn 's/.*\((.*)\).*/\1/p'
+)
+
+nohup dragon-drop -x -i -T "$file" >/dev/null 2>&1 &
+sleep 0.1
+kill -9 "$terminal_proc"

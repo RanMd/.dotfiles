@@ -1,9 +1,0 @@
-# Esta lista contiene los archivos que aun nose donde poner
-
-# archivo que sirve para abrir alacritty con una url (para yazi)
-alacritty-open -> /usr/share/applications/alacritty-open.desktop
-
-# archivo para temas dinamicos de las apps
-alacritty.dcol & yazi.dcol -> ~/.config/hyde/wallbash/always/alacritty.dcol
-
-# Revisar /.local/bin estan varios scripts que no se donde poner

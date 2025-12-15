@@ -10,6 +10,9 @@ L = Link - Create a symbolic link from path to target
  Nvim 
 L|${HOME}/.config|nvim|neovim
 
+ Alacritty 
+L|${HOME}/.config|alacritty|alacritty
+
  Podman 
 L|${HOME}/.config|containers|podman
 
@@ -19,3 +22,20 @@ L|${HOME}/.config|oh-my-posh|oh-my-posh-bin
  Zsh 
 L|${HOME}|.zshenv|zsh
 L|${HOME}/.config|zsh|zsh
+
+ Bin 
+L|${HOME}/.local/bin|dragon-file init-ram-cache power-limiter togglespecial explorer notepad|hyprland
+L|${HOME}/.local/share/applications|explorer.desktop notepad.desktop|hyprland
+
+ Hyprland 
+L|${HOME}/.config/hypr|keybindings.conf monitors.conf userprefs.conf windowrules.conf workflows|hyprland
+
+ Waybar 
+L|${HOME}/.config/waybar|user-style.css|waybar
+L|${HOME}/.config/waybar/layouts|my-layout.jsonc|waybar
+
+ Firefox 
+L|${HOME}/.mozilla/firefox/firefox-themes|customChrome.css|firefox
+
+ Services 
+L|${HOME}/.config/systemd/user|init-ram-cache.service|hyprland

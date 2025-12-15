@@ -4,6 +4,7 @@
 
 # Disable the swap partition if enabled
 
+echo "Checking for swap partition..."
 fstab_file="/etc/fstab"
 
 swap_partition=$(grep -E 'swap|swapfile' "$fstab_file")
@@ -19,10 +20,23 @@ else
   echo "No swap partition found."
 fi
 
+echo "Swap partition check complete."
+
+echo "Setting up RAM cache..."
 source ~/.local/bin/init-ram-cache
 
 # Install yazi plugins
 
+echo "Installing Yazi plugins..."
+
 ya pkg add yazi-rs/plugins:git
 ya pkg add yazi-rs/plugins:toggle-pane
 ya pkg add imsi32/yatline
+
+echo "Yazi plugins installation complete."
+
+# Init services
+
+echo "Enabling services..."
+
+systemctl --user enable init-ram-cache.service
