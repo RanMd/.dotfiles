@@ -1,5 +1,6 @@
 # nvim
 lazyvim.json
+lazy-lock.json
 
 #yazi
 package.toml
