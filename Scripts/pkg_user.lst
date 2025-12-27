@@ -24,6 +24,7 @@ fd
 zsh
 zsh-autosuggestions
 zsh-syntax-highlighting
+fzf-tab-git
 
 # --------------------------------------------------- // Yazi
 yazi

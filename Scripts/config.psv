@@ -24,7 +24,7 @@ L|${HOME}|.zshenv|zsh
 L|${HOME}/.config|zsh|zsh
 
  Bin 
-L|${HOME}/.local/bin|dragon-file init-ram-cache power-limiter togglespecial explorer notepad|hyprland
+L|${HOME}/.local/bin|dragon-file init-ram-cache power-limiter togglespecial explorer notepad gamelauncher|hyprland
 L|${HOME}/.local/share/applications|explorer.desktop notepad.desktop|hyprland
 
  Hyprland 
