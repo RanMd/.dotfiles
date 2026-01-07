@@ -86,38 +86,6 @@ echo ${RESET}
 
 echo "${GREEN}[git]${RESET} Configuring GitHub"
 
-if [ "$DRY_RUN" = false ]; then
-  echo "Enter your username"
-  read -r USERNAME
-  echo "Enter your email"
-  read -r EMAIL
-  git config --global user.name "${USERNAME}"
-  git config --global user.email "${EMAIL}"
-
-  echo
-
-  echo "Verifying Git configuration..."
-  git config --global --list
-
-  cat <<'EOF'
-
-You can change these settings later using the following commands:
-  git config --global user.name "Your Name"
-  git config --global user.email "mail@email.com"
-EOF
-
-  ssh-keygen -t ed25519 -C "${EMAIL}" -f "${HOME}/.ssh/id_ed25519"
-
-  eval "$(ssh-agent -s)"
-  ssh-add "${HOME}/.ssh/id_ed25519"
-
-  echo "Here is your public SSH key:"
-  cat "${HOME}/.ssh/id_ed25519.pub"
-  echo "Add this key to your GitHub account"
-
-  read -p "Press [Enter] to continue after adding the SSH key to GitHub"
-fi
-
 if [ ! -d "${HYDE_DIR}" ]; then
   echo "${GREEN}[clone]${RESET} Cloning Hyde repository..."
   git clone git@github.com:RanMd/HyDE.git

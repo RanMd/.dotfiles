@@ -36,20 +36,20 @@ require("yatline"):setup({
 		bg_mode = {},
 	},
 
-	header_line = {
-		left = {
-			section_a = {
-				{ type = "string", custom = false, name = "tab_path" },
-			},
-			section_b = {},
-			section_c = {},
-		},
-		right = {
-			section_a = {
-				{ type = "line", custom = false, name = "tabs", params = { "left" } },
-			},
-			section_b = {},
-			section_c = {},
-		},
-	},
+	-- header_line = {
+	-- 	left = {
+	-- 		section_a = {
+	-- 			{ type = "string", custom = false, name = "tab_path" },
+	-- 		},
+	-- 		section_b = {},
+	-- 		section_c = {},
+	-- 	},
+	-- 	right = {
+	-- 		section_a = {
+	-- 			{ type = "line", custom = false, name = "tabs", params = { "left" } },
+	-- 		},
+	-- 		section_b = {},
+	-- 		section_c = {},
+	-- 	},
+	-- },
 })

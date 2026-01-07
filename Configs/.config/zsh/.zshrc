@@ -1,4 +1,4 @@
-# Loading aliases 
+# Loading aliases
 source $ZDOTDIR/aliases/aliases.sh
 
 # Load completions
@@ -50,3 +50,11 @@ echo -e "\e[33m$(moo -r $(hyprctl splash))\e[0m"
 
 # Mise init
 eval "$(mise activate zsh)"
+
+function preexec() {
+  print -Pn "\e]0;$1\a"
+}
+
+function precmd() {
+  print -Pn "\e]0;%~\a"
+}

@@ -23,7 +23,7 @@ fi
 echo "Swap partition check complete."
 
 echo "Setting up RAM cache..."
-source ~/.local/bin/init-ram-cache
+# source ~/.local/bin/init-ram-cache
 
 # Install yazi plugins
 

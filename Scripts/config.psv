@@ -7,6 +7,8 @@ Flags:
 L = Link - Create a symbolic link from path to target
          - If target exists, it will be backed up before linking
 
+# NOTE: CONFIGURAR LOS ETC AUN SIN PROBAR
+
  Nvim 
 L|${HOME}/.config|nvim|neovim
 

@@ -1,16 +1,1 @@
 /* User custom styles */
-
-#privacy {
-  margin-right: 6px;
-}
-
-window#waybar.top #pill,
-window#waybar.top #pill button {
-  border-radius: 1pt;
-  min-height: 13pt;
-  color: #dcdcdc;
-}
-
-window#waybar {
-  background: rgba(30, 30, 30, 0.45);
-}

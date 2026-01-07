@@ -1,0 +1,2 @@
+# Establecer swappiness a 10 después de que la regla de CachyOS lo haya puesto a 150
+ACTION=="change", KERNEL=="zram0", ATTR{initstate}=="1", SYSCTL{vm.swappiness}="10"

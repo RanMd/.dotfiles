@@ -20,6 +20,9 @@ export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git --excl
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git --exclude .cache"
 
+# Dotnet config
+export DOTNET_CLI_TELEMETRY_OPTOUT=1
+
 export FZF_DEFAULT_OPTS="\
   --separator='' \
   --height 50% \

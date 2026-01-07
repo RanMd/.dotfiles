@@ -12,6 +12,7 @@ games["Hollow Knight"]="12 12"
 games["Project Zomboid"]="20 20"
 # sudo nvidia-smi -lgc 300,1300 RimWorld
 # sudo nvidia-smi -lgc 300,1000 Hollow Knight
+games["The Forest"]="15 15"
 
 MODE=${1}
 POWER_LIMIT="$HOME/.local/bin/power-limiter"
