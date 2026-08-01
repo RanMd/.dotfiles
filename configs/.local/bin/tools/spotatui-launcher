@@ -1,0 +1,12 @@
+#!/bin/sh
+
+procid=$(pgrep -x "spotatui")
+
+if [ -n "$procid" ]; then
+  hyprctl dispatch 'hl.dsp.focus({ workspace = "special:music" })'
+  exit 0
+fi
+
+alacritty \
+  --class "Spotatui" \
+  --command spotatui --no-update

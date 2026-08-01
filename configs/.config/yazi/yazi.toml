@@ -1,0 +1,31 @@
+# yazi.toml
+[mgr]
+show_hidden = true
+linemode = "none"
+
+# [[plugin.prepend_fetchers]]
+# id = "git"
+# name = "*"
+# run = "git"
+#
+# [[plugin.prepend_fetchers]]
+# id = "git"
+# name = "*/"
+# run = "git"
+
+[opener]
+edit = [
+  { run = 'nvim "$@"', desc = "Neovim", block = true, for = "linux" },
+  { run = 'code "$@"', desc = "Code", orphan = true, block = true, for = "linux" },
+]
+reveal = [
+  { run = 'xdg-open "$(dirname "$1")"', desc = "Reveal", for = "linux" },
+]
+open = [{ run = 'xdg-open "$@"', orphan = true, desc = "Open", for = "linux" }]
+
+[open]
+prepend_rules = [
+  { mime = "inode/directory", use = "open" },
+  { mime = "text/*", use = "edit" },
+  { mime = "text/*", use = "edit" },
+]

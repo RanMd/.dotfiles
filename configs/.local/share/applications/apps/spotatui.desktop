@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Spotatui
+GenericName=Spotify TUI
+Comment=A terminal user interface for Spotify
+Exec=/home/alexander/.local/bin/spotatui-launcher
+Icon=spotify
+Terminal=false
+Categories=AudioVideo;Audio;Player;
