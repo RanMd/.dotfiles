@@ -5,7 +5,7 @@ After=graphical-session.target
 
 [Service]
 Type=oneshot
-ExecStart=%h/.local/bin/init-ram-cache
+ExecStart=%h/.local/bin/tools/init-ram-cache
 RemainAfterExit=true
 
 [Install]

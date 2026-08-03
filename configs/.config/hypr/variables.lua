@@ -14,7 +14,7 @@ var.app = {}
 
 var.app.terminal = "alacritty"
 
-var.app.browser = "brave-origin-nightly --password-store=basic"
+var.app.browser = "brave-origin"
 
 var.app.editor = "nvim"
 

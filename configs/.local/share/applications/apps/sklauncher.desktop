@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=SKLauncher
+GenericName=Minecraft Launcher
+Comment=A simple and fast Minecraft launcher written in Rust
+Exec=/home/alexander/.local/bin/sklauncher.AppImage
+Icon=SKLauncher
+Terminal=false
+Categories=Game;Utility;
